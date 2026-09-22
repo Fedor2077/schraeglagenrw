@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schräglage NRW</title>
+
+    <meta name="description"
+        content="Schräglage NRW - Motorradcommunity aus NRW für gemeinsame Touren, neue Leute und entspannte Ausfahrten.">
+
+    <style>
+        :root {
+            --background: #080808;
+            --background-light: #101010;
+            --card: #131313;
+
+            --text: #f4f4f2;
+            --text-muted: #aaa;
+
+            --border: #2a2a2a;
+
+            --red: #d5202f;
+            --red-light: #f02c3b;
+
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            background:
+                radial-gradient(
+                    circle at 80% 5%,
+                    rgba(213, 32, 47, 0.14),
+                    transparent 420px
+                ),
+                var(--background);
+
+            color: var(--text);
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            background: rgba(8, 8, 8, 0.9);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-inner {
+            min-height: 65px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            text-transform: uppercase;
+
+            font-weight: 900;
+            letter-spacing: 0.07em;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 80vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 90px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            text-transform: uppercase;
+
+            font-weight: 800;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 0.12em;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 2px;
+
+            background: var(--red);
+        }
+
+        h1 {
+            margin: 15px 0 20px;
+
+            font-size: clamp(4rem, 10vw, 8rem);
+
+            line-height: 0.82;
+
+            letter-spacing: -0.06em;
+
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            display: block;
+
+            color: transparent;
+
+            -webkit-text-stroke: 1.5px white;
+        }
+
+        .hero-description {
+            max-width: 700px;
+
+            color: #c5c5c5;
+
+            font-size: 1.15rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 52px;
+
+            padding: 0 23px;
+
+            border-radius: 999px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            border: 1px solid var(--border);
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--red);
+
+            border-color: var(--red);
+        }
+
+        .button-primary:hover {
+            background: var(--red-light);
+        }
+
+        .button-secondary {
+            background: #111;
+        }
+
+        /* HERO CARD */
+
+        .hero-card {
+            min-height: 430px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 35px;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            background:
+                repeating-linear-gradient(
+                    -20deg,
+                    transparent 0px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.025) 40px,
+                    rgba(255, 255, 255, 0.025) 42px
+                ),
+                #111;
+        }
+
+        .hero-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120%;
+            height: 45%;
+
+            left: 10%;
+            bottom: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--red),
+                    #640b14
+                );
+
+            transform: rotate(-10deg);
+        }
+
+        .hero-card-text {
+            position: absolute;
+
+            left: 30px;
+            bottom: 35px;
+
+            font-size: clamp(2rem, 5vw, 4rem);
+
+            text-transform: uppercase;
+
+            line-height: 0.9;
+
+            font-weight: 900;
+        }
+
+        .hero-card-text small {
+            display: block;
+
+            font-size: 0.75rem;
+
+            margin-top: 15px;
+
+            letter-spacing: 0.08em;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
+
+            line-height: 0.95;
+
+            letter-spacing: -0.04em;
+
+            text-transform: uppercase;
+        }
+
+        .section-title p {
+            margin: 0;
+
+            color: var(--text-muted);
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 25px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+        }
+
+        .feature strong {
+            display: block;
+
+            font-size: 1.1rem;
+
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            margin: 0;
+
+            color: var(--text-muted);
+        }
+
+        /* MINORS */
+
+        .minor-warning {
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(213, 32, 47, 0.6);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(213, 32, 47, 0.14),
+                    #111
+                );
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            border-radius: 999px;
+
+            background: var(--red);
+
+            text-transform: uppercase;
+
+            font-weight: 900;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 0.1em;
+        }
+
+        .minor-warning h3 {
+            margin: 15px 0 10px;
+
+            font-size: 1.6rem;
+        }
+
+        .minor-warning p {
+            margin: 0;
+
+            color: #ccc;
+        }
+
+        /* RULES */
+
+        .rules {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        details {
+            background: var(--background-light);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+        }
+
+        details[open] {
+            background: #141414;
+
+            border-color: #444;
+        }
+
+        summary {
+            list-style: none;
+
+            cursor: pointer;
+
+            padding: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            font-weight: 800;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+
+            margin-left: auto;
+
+            font-size: 1.4rem;
+
+            color: #888;
+        }
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        .number {
+            min-width: 35px;
+            height: 35px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            border: 1px solid #444;
+
+            font-size: 0.75rem;
+        }
+
+        .rule-content {
+            padding:
+
+                0
+                22px
+                22px
+                69px;
+
+            color: #bbb;
+        }
+
+        .rule-content p {
+            margin-top: 0;
+        }
+
+        /* INTRO */
+
+        .introduction {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            background: var(--background-light);
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 32px;
+        }
+
+        .introduction h3 {
+            font-size: 1.7rem;
+
+            margin-top: 10px;
+        }
+
+        .introduction p {
+            color: var(--text-muted);
+        }
+
+        .example {
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background: #080808;
+
+            border: 1px solid var(--border);
+        }
+
+        /* JOIN */
+
+        .join {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(213, 32, 47, 0.09),
+                    transparent
+                );
+
+            border-top: 1px solid var(--border);
+        }
+
+        .join h2 {
+            margin: 0 0 20px;
+
+            font-size: clamp(3rem, 8vw, 6rem);
+
+            line-height: 0.9;
+
+            text-transform: uppercase;
+
+            letter-spacing: -0.05em;
+        }
+
+        .join p {
+            max-width: 650px;
+
+            margin: auto;
+
+            margin-bottom: 25px;
+
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: #777;
+
+            font-size: 0.85rem;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 330px;
+            }
+
+            .section-title {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .introduction {
+                grid-template-columns: 1fr;
+            }
+
+            .rule-content {
+                padding-left: 20px;
+            }
+
+            .nav-links a:not(:last-child) {
+                display: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<nav>
+
+    <div class="container nav-inner">
+
+        <a class="logo" href="#start">
+            Schräglage <span>NRW</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#about">
+                Über uns
+            </a>
+
+            <a href="#rules">
+                Regeln
+            </a>
+
+            <a href="#join">
+                Beitreten
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main id="start">
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    Motorradcommunity aus NRW
+                </div>
+
+                <h1>
+                    Schräglage
+                    <span>NRW</span>
+                </h1>
+
+                <p class="hero-description">
+
+                    Neue Leute kennenlernen,
+                    gemeinsame Touren fahren
+                    und einfach eine gute Zeit auf dem Motorrad haben.
+
+                    Wir sind eine neue Community aus NRW
+                    und wollen gemeinsam in die nächste Saison starten.
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <a
+                        class="button button-primary"
+                        href="https://chat.whatsapp.com/G8B4KStH8FJ6PuY3Aa7F3r"
+                        target="_blank">
+
+                        WhatsApp-Gruppe beitreten
+
+                    </a>
+
+
+                    <a
+                        class="button button-secondary"
+                        href="#rules">
+
+                        Regelwerk ansehen
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="hero-card-text">
+
+                    Gemeinsam
+                    <br>
+                    durchstarten
+
+                    <small>
+                        Alle Bikes · Alle Erfahrungslevel · NRW
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Eine Gruppe.
+                    <br>
+                    Viele Kurven.
+                </h2>
+
+                <p>
+
+                    Schräglage NRW ist eine neue Motorradcommunity
+                    für Fahrerinnen und Fahrer aus NRW und Umgebung.
+
+                    Egal ob Supersportler, Naked Bike, Tourer,
+                    Anfänger oder erfahrener Fahrer.
+
+                    Entscheidend sind Respekt,
+                    Sicherheit und die gemeinsame Leidenschaft
+                    fürs Motorradfahren.
+
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <strong>
+                        Alle willkommen
+                    </strong>
+
+                    <p>
+                        Motorradmarke, Fahrzeugklasse
+                        und Erfahrungslevel spielen keine Rolle.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Gemeinsame Touren
+                    </strong>
+
+                    <p>
+                        Wochenendtouren,
+                        Feierabendrunden
+                        und spontane Ausfahrten.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Sicherheit zuerst
+                    </strong>
+
+                    <p>
+                        Kein Gruppenzwang
+                        und kein Druck,
+                        schneller zu fahren als man möchte.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RULES -->
+
+    <section id="rules">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Unser
+                    <br>
+                    Regelwerk
+                </h2>
+
+                <p>
+
+                    Unsere Regeln sollen dafür sorgen,
+                    dass sich alle Mitglieder wohlfühlen
+                    und gemeinsame Ausfahrten entspannt
+                    und sicher stattfinden können.
+
+                </p>
+
+            </div>
+
+
+            <!-- MINORS -->
+
+            <div class="minor-warning">
+
+                <span class="tag">
+                    Besonders wichtig
+                </span>
+
+                <h3>
+                    Minderjährige Mitglieder
+                </h3>
+
+                <p>
+
+                    Auch minderjährige Motorradfahrer
+                    sind bei Schräglage NRW willkommen.
+
+                    Voraussetzung für die Teilnahme
+                    an einer gemeinsamen Ausfahrt
+                    sind ein eigenes Motorrad,
+                    eine entsprechende gültige Fahrerlaubnis
+                    und geeignete Schutzkleidung.
+
+                    Minderjährige dürfen ausschließlich
+                    an Ausfahrten teilnehmen,
+                    die ausdrücklich dafür freigegeben wurden.
+
+                    Minderjährige Mitglieder werden
+                    im Rahmen unserer Gruppenaktivitäten
+                    nicht als Sozia oder Sozius
+                    auf Motorrädern anderer Gruppenmitglieder
+                    mitgenommen.
+
+                    Der Schutz minderjähriger Mitglieder
+                    hat für uns besondere Priorität.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="rules">
+
+
+                <!-- 1 -->
+
+                <details open>
+
+                    <summary>
+
+                        <span class="number">01</span>
+
+                        Respektvoller Umgang
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Wir behandeln andere Mitglieder respektvoll.
+
+                            Beleidigungen,
+                            Mobbing,
+                            gezielte Provokationen,
+                            Diskriminierung,
+                            Bedrohungen
+                            oder Belästigungen
+                            werden nicht toleriert.
+
+                        </p>
+
+                        <p>
+
+                            Unterschiedliche Motorräder,
+                            Erfahrungsstände
+                            oder Fahrstile
+                            sind kein Grund,
+                            andere Mitglieder abzuwerten.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 2 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">02</span>
+
+                        Alle sind willkommen
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Motorradmarke,
+                            Fahrzeugklasse,
+                            Herkunft,
+                            Geschlecht
+                            oder Fahrerfahrung
+                            spielen für die Mitgliedschaft
+                            grundsätzlich keine Rolle.
+
+                        </p>
+
+                        <p>
+
+                            Auch Fahranfänger
+                            sind ausdrücklich willkommen.
+
+                            Niemand muss besonders schnell fahren
+                            oder ein bestimmtes Motorrad besitzen,
+                            um Teil der Community zu sein.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 3 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">03</span>
+
+                        Minderjährige
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Minderjährige dürfen nur
+                            an Ausfahrten teilnehmen,
+                            die ausdrücklich
+                            für minderjährige Mitglieder
+                            freigegeben wurden.
+
+                        </p>
+
+                        <p>
+
+                            Voraussetzung sind:
+
+                            ein eigenes legal geführtes Motorrad,
+                            eine entsprechende Fahrerlaubnis
+                            und geeignete Motorrad-Schutzkleidung.
+
+                        </p>
+
+                        <p>
+
+                            Minderjährige Mitglieder
+                            werden im Rahmen unserer Gruppenaktivitäten
+                            nicht als Sozia oder Sozius
+                            auf Motorrädern anderer Mitglieder
+                            mitgenommen.
+
+                        </p>
+
+                        <p>
+
+                            Sexualisierte Kommentare,
+                            unangemessene Annäherungen,
+                            Grooming,
+                            das Ausnutzen eines Altersgefälles
+                            oder sonstiges grenzüberschreitendes Verhalten
+                            gegenüber minderjährigen Mitgliedern
+                            wird nicht toleriert.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 4 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">04</span>
+
+                        Pornografische Inhalte
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Pornografische,
+                            eindeutig sexualisierte
+                            oder vergleichbar unangemessene Inhalte
+                            haben in unserer Community nichts zu suchen.
+
+                        </p>
+
+                        <p>
+
+                            Dazu zählen insbesondere
+                            pornografische Bilder,
+                            Videos,
+                            Links
+                            oder das ungefragte Versenden
+                            entsprechender Inhalte
+                            an andere Mitglieder.
+
+                        </p>
+
+                        <p>
+
+                            Ein entsprechender Verstoß
+                            kann zum sofortigen
+                            und dauerhaften Ausschluss
+                            aus der Community führen.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 5 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">05</span>
+
+                        Straftaten und schwere Übergriffe
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Straftaten
+                            oder ernsthafte Übergriffe
+                            im Zusammenhang mit unserer Community
+                            werden nicht toleriert.
+
+                        </p>
+
+                        <p>
+
+                            Dies gilt insbesondere
+                            für Straftaten
+                            oder Übergriffe
+                            gegenüber minderjährigen Mitgliedern.
+
+                        </p>
+
+                        <p>
+
+                            Schwerwiegende Vorfälle
+                            führen grundsätzlich
+                            zum permanenten Ausschluss.
+
+                        </p>
+
+                        <p>
+
+                            Besteht ein konkreter Verdacht
+                            auf eine Straftat,
+                            behalten sich die Verantwortlichen
+                            außerdem vor,
+                            den Sachverhalt
+                            an die zuständigen Behörden weiterzugeben
+                            beziehungsweise Strafanzeige zu erstatten.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 6 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">06</span>
+
+                        Verhalten bei Ausfahrten
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Bei jeder Gruppenfahrt
+                            gelten die Straßenverkehrsregeln.
+
+                            Eine Gruppenausfahrt
+                            ist kein Rennen.
+
+                        </p>
+
+                        <p>
+
+                            Jeder fährt eigenverantwortlich
+                            und innerhalb seiner persönlichen Fähigkeiten.
+
+                            Niemand soll dazu gedrängt werden,
+                            schneller zu fahren,
+                            als er sich sicher fühlt.
+
+                        </p>
+
+                        <p>
+
+                            Illegale Straßenrennen,
+                            bewusst gefährliches Fahren,
+                            riskante Überholmanöver
+                            oder die Gefährdung anderer Teilnehmer
+                            werden nicht toleriert.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 7 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">07</span>
+
+                        Fahrtüchtigkeit
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Wer an einer gemeinsamen Ausfahrt teilnimmt,
+                            muss fahrtüchtig sein.
+
+                        </p>
+
+                        <p>
+
+                            Fahren unter dem Einfluss
+                            von Alkohol,
+                            Drogen
+                            oder anderen Substanzen,
+                            welche die Fahrtüchtigkeit erheblich beeinträchtigen,
+                            ist bei unseren Gruppenfahrten nicht akzeptabel.
+
+                        </p>
+
+                        <p>
+
+                            Das Motorrad muss sich
+                            in einem verkehrssicheren Zustand befinden.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 8 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">08</span>
+
+                        Schutzkleidung
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Bei gemeinsamen Ausfahrten
+                            erwarten wir geeignete Motorrad-Schutzkleidung.
+
+                        </p>
+
+                        <p>
+
+                            Dazu gehören insbesondere
+                            ein zugelassener Motorradhelm,
+                            geeignete Motorradbekleidung,
+                            Handschuhe
+                            und festes Schuhwerk
+                            beziehungsweise Motorradstiefel.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 9 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">09</span>
+
+                        Fotos und Social Media
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Bei unseren Touren
+                            entstehen möglicherweise
+                            Fotos und Videos.
+
+                        </p>
+
+                        <p>
+
+                            Bevor deutlich erkennbare Personen
+                            öffentlich auf TikTok,
+                            Instagram
+                            oder anderen Plattformen veröffentlicht werden,
+                            sollte dies mit den Betroffenen abgestimmt werden.
+
+                        </p>
+
+                        <p>
+
+                            Bei minderjährigen Mitgliedern
+                            ist besondere Zurückhaltung geboten.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 10 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">10</span>
+
+                        Privatsphäre
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Telefonnummern,
+                            Namen,
+                            Bilder,
+                            Standorte
+                            und andere persönliche Informationen
+                            aus der WhatsApp-Gruppe
+                            bleiben innerhalb der Community.
+
+                        </p>
+
+                        <p>
+
+                            Persönliche Informationen
+                            anderer Mitglieder
+                            dürfen nicht ohne deren Zustimmung
+                            weitergegeben oder veröffentlicht werden.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 11 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">11</span>
+
+                        Werbung und Spam
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Die Gruppe ist eine Community
+                            und keine Werbeplattform.
+
+                        </p>
+
+                        <p>
+
+                            Dauerhafte Eigenwerbung,
+                            Affiliate-Links,
+                            wiederholte Verkaufsangebote
+                            oder geschäftliche Werbung
+                            sollten vorher
+                            mit den Administratoren abgestimmt werden.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 12 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">12</span>
+
+                        Neue Mitglieder stellen sich vor
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Wer neu in die WhatsApp-Gruppe kommt,
+                            stellt sich bitte einmal kurz vor.
+
+                        </p>
+
+                        <p>
+
+                            Ein paar Sätze reichen völlig.
+
+                            Zum Beispiel:
+
+                            Vorname,
+                            Alter,
+                            Region,
+                            Motorrad
+                            und welche Art von Touren
+                            man gerne fährt.
+
+                        </p>
+
+                        <p>
+
+                            Niemand muss darüber hinaus
+                            private Informationen preisgeben.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 13 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">13</span>
+
+                        Eigene Touren organisieren
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Grundsätzlich darf jeder
+                            gerne gemeinsame Ausfahrten vorschlagen.
+
+                        </p>
+
+                        <p>
+
+                            Idealerweise werden
+                            Treffpunkt,
+                            Startzeit,
+                            ungefährer Streckenumfang,
+                            Fahrstil
+                            und gegebenenfalls
+                            der Schwierigkeitsgrad angegeben.
+
+                        </p>
+
+                        <p>
+
+                            Wenn minderjährige Mitglieder
+                            an einer Tour teilnehmen dürfen,
+                            muss dies ausdrücklich
+                            in der Tourbeschreibung angegeben werden.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 14 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">14</span>
+
+                        Eigenverantwortung
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Die Organisatoren einer Tour
+                            koordinieren die gemeinsame Ausfahrt.
+
+                        </p>
+
+                        <p>
+
+                            Jeder Teilnehmer bleibt
+                            für seine eigene Fahrweise,
+                            die Einhaltung der Verkehrsregeln,
+                            sein Fahrzeug
+                            und seine Entscheidungen
+                            selbst verantwortlich.
+
+                        </p>
+
+                        <p>
+
+                            Niemand soll einer Fahrweise folgen,
+                            die er selbst für unsicher hält.
+
+                            Sicherheit geht immer vor Gruppendruck.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- 15 -->
+
+                <details>
+
+                    <summary>
+
+                        <span class="number">15</span>
+
+                        Regelverstöße
+
+                    </summary>
+
+                    <div class="rule-content">
+
+                        <p>
+
+                            Nicht jeder kleinere Fehler
+                            führt automatisch
+                            zum Ausschluss.
+
+                        </p>
+
+                        <p>
+
+                            Abhängig von Art
+                            und Schwere eines Verstoßes
+                            können die Administratoren
+                            ein Gespräch führen,
+                            eine Verwarnung aussprechen
+                            oder Mitglieder zeitweise
+                            beziehungsweise dauerhaft entfernen.
+
+                        </p>
+
+                        <p>
+
+                            Bei schwerwiegenden Verstößen,
+                            insbesondere pornografischen Inhalten,
+                            sexualisiertem Verhalten gegenüber Minderjährigen,
+                            Gewalt,
+                            ernsthaften Bedrohungen
+                            oder vergleichbaren schweren Vorfällen,
+                            kann ein sofortiger
+                            permanenter Ausschluss
+                            ohne vorherige Verwarnung erfolgen.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- INTRODUCTION -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="introduction">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Neu dabei?
+                    </div>
+
+                    <h3>
+                        Stell dich kurz vor 👋
+                    </h3>
+
+                    <p>
+
+                        Damit aus einer anonymen WhatsApp-Gruppe
+                        eine richtige Community wird,
+                        bitten wir jedes neue Mitglied,
+                        sich kurz vorzustellen.
+
+                        Ein paar Sätze reichen.
+
+                    </p>
+
+                </div>
+
+
+                <div class="example">
+
+                    <strong>
+                        Beispiel
+                    </strong>
+
+                    <br><br>
+
+                    „Moin, ich bin Max,
+                    21 und komme aus Bochum.
+
+                    Ich fahre eine Yamaha MT-07
+                    und bin meistens
+                    für entspannte Feierabendrunden
+                    oder Wochenendtouren zu haben.
+
+                    Freue mich auf gemeinsame Ausfahrten!“
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JOIN -->
+
+    <section class="join" id="join">
+
+        <div class="container">
+
+            <h2>
+                Mehr Kurven.
+                <br>
+                Mehr Leute.
+            </h2>
+
+            <p>
+
+                Du hast Lust auf gemeinsame Touren,
+                neue Leute
+                und eine entspannte Motorradcommunity?
+
+                Dann komm gerne dazu.
+
+            </p>
+
+
+            <a
+                class="button button-primary"
+                href="DEIN_WHATSAPP_LINK"
+                target="_blank">
+
+                WhatsApp-Gruppe beitreten
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-content">
+
+        <span>
+            © 2026 Schräglage NRW
+        </span>
+
+        <span>
+            Motorradcommunity aus NRW
+        </span>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
